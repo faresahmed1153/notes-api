@@ -56,9 +56,11 @@ const deleteNote = async (req, res) => {
 };
 
 const notes = async (req, res) => {
+  
   try {
     const note = await noteModel
-      .find({})
+      
+      .find({createdBy:req.user._id})
       .populate({ path: "createdBy", select: "-password"});
 
     res.json({ message: "Done", note });
