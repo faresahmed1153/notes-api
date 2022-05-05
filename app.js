@@ -7,6 +7,6 @@ require("dotenv").config();
 app.use(userRouter, noteRouter);
 app.use(express.json());
 connectDB();
-app.listen(2000 || process.env.PORT, () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log("running......");
 });
