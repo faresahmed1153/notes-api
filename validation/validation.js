@@ -27,50 +27,49 @@ const signinSchema = Joi.object({
 
 const noteSchema = Joi.object({
   title: Joi.string().alphanum().max(20).required(),
-  desc: Joi.string().alphanum().max(300).required(),
+  desc: Joi.string().max(300).required(),
 });
 
-const signupValidation= () => {
-    return (req, res, next) => {
-        const { name, email, password } = req.body
-        let { error } = signupSchema.validate(
-            { name, email, password },
-            { abortEarly: false }
-        );
-        if (error == undefined) {
-            next();
-        } else {
-            res.json({ error });
-        }
+const signupValidation = () => {
+  return (req, res, next) => {
+    const { name, email, password } = req.body;
+    let { error } = signupSchema.validate(
+      { name, email, password },
+      { abortEarly: false }
+    );
+    if (error == undefined) {
+      next();
+    } else {
+      res.json({ error });
     }
-
+  };
 };
 
-const signinValidation=() => {
-    return (req, res, next) => {
-        const { email, password } = req.body;
-        let { error } = signinSchema.validate(
-            { email, password },
-            { abortEarly: false }
-        );
-        if (error == undefined) {
-            next();
-        } else {
-            res.json({ error });
-        }
+const signinValidation = () => {
+  return (req, res, next) => {
+    const { email, password } = req.body;
+    let { error } = signinSchema.validate(
+      { email, password },
+      { abortEarly: false }
+    );
+    if (error == undefined) {
+      next();
+    } else {
+      res.json({ error });
     }
+  };
 };
 
 const noteValidation = () => {
-    return (req, res, next) => {
-        const { title, desc } = req.body;
-        let { error } = noteSchema.validate({ title, desc }, { abortEarly: false });
-        if (error == undefined) {
-            next();
-        } else {
-            res.json({ error });
-        }
+  return (req, res, next) => {
+    const { title, desc } = req.body;
+    let { error } = noteSchema.validate({ title, desc }, { abortEarly: false });
+    if (error == undefined) {
+      next();
+    } else {
+      res.json({ error });
     }
+  };
 };
 
 module.exports = { signupValidation, signinValidation, noteValidation };
