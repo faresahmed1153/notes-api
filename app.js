@@ -3,7 +3,7 @@ const connectDB = require("./DB/connection");
 const { userRouter, noteRouter } = require("./modules/index.router");
 const app = express();
 const cors = require(cors);
-app.use(cors());
+app.use(cors({ origin: "*" }));
 app.use(express.json());
 require("dotenv").config();
 app.use(userRouter, noteRouter);
