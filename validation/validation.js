@@ -26,7 +26,7 @@ const signinSchema = Joi.object({
 });
 
 const noteSchema = Joi.object({
-  title: Joi.string().alphanum().max(20).required(),
+  title: Joi.string().max(20).required(),
   desc: Joi.string().max(300).required(),
 });
 
