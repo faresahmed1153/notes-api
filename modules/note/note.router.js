@@ -6,7 +6,7 @@ const router = require("express").Router();
 
 router.get("/note", auth(), notes);
 router.post("/note", auth(), noteValidation(), addNote);
-router.put("/note", auth(), noteValidation(), updateNote);
+router.post("/updateNote", auth(), noteValidation(), updateNote);
 router.delete("/note", auth(), deleteNote);
 
 module.exports = router;
