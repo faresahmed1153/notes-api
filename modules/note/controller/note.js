@@ -19,7 +19,7 @@ const addNote = async (req, res) => {
 
 const updateNote = async (req, res) => {
   const { title, desc, noteId } = req.body;
-
+  console.log(title, desc, noteId);
   try {
     const updatedNote = await noteModel.findOneAndUpdate(
       { _id: noteId },
