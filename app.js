@@ -17,6 +17,9 @@ app.use(function (req, res, next) {
   );
   next();
 });
+const cors = require("cors");
+
+app.use(cors());
 app.use(express.json());
 require("dotenv").config();
 app.use(userRouter, noteRouter);
