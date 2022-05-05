@@ -12,7 +12,8 @@ app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,PATCH");
   res.header(
     "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization, access-control-allow-origin"
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization, access-control-allow-origin",
+    "http://localhost:3000"
   );
   next();
 });
